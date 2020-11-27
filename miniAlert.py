@@ -20,3 +20,4 @@ import lsst.meas.base.tests
 from lsst.utils import getPackageDir
 import lsst.utils.tests
 import lsst.afw.geom as afwGeom
+from lsst.ap.association import tests
