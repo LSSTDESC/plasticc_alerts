@@ -1,5 +1,5 @@
 {
-	"namespace": "lsst.v4_0",
+	"namespace": "lsst.v4_1",
 	"name": "ssObject",
 	"type": "record",
 	"fields": [
