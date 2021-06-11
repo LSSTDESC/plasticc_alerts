@@ -115,10 +115,6 @@
        {"name": "mwebv_err", "type": ["null", "float"], "default": null},
        {"name": "z_final", "type": ["null", "float"], "default": null},
        {"name": "z_final_err", "type": ["null", "float"], "default": null},
-       {"name": "hostgal_logmass", "type": ["null", "float"], "default": null},
-       {"name": "hostgal_sfr", "type": ["null", "float"], "default": null},
-       {"name": "hostgal_ssfr", "type": ["null", "float"], "default": null},
-       {"name": "hostgal_ssfr_err", "type": ["null", "float"], "default": null},
        {"name": "ellipticity", "type": ["null", "float"], "default": null},
        {"name": "size", "type": ["null", "float"], "default": null},
        {"name": "hostgal_z", "type": ["null", "float"], "default": null},
@@ -134,7 +130,6 @@
        {"name": "hostgal_magerr_g", "type": ["null", "float"], "default": null},
        {"name": "hostgal_magerr_r", "type": ["null", "float"], "default": null},
        {"name": "hostgal_magerr_i", "type": ["null", "float"], "default": null},
-       {"name": "hostgal_magerr_z", "type": ["null", "float"], "default": null},
-       {"name": "hostgal_logmass_err","type": ["null", "float"], "default": null}
+       {"name": "hostgal_magerr_z", "type": ["null", "float"], "default": null}
 	]
 }

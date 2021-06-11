@@ -29,10 +29,6 @@
 	"mwebv_err": 0,
 	"z_final": 0,
 	"z_final_err": 0,
-	"hostgal_logmass": 0,
-	"hostgal_sfr": 0,
-	"hostgal_ssfr":0,
-	"hostgal_ssfr_err":0,
 	"ellipticity": 0,
 	"size": 0,
 	"hostgal_z": 0,
@@ -48,8 +44,7 @@
 	"hostgal_magerr_g":0,
 	"hostgal_magerr_r":0,
 	"hostgal_magerr_i":0,
-	"hostgal_magerr_z":0,
-	"hostgal_logmass_err":0
+	"hostgal_magerr_z":0
     },
     "prvDiaSources": [
 	{
