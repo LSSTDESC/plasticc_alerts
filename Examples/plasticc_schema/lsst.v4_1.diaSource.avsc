@@ -130,6 +130,22 @@
        {"name": "hostgal_magerr_g", "type": ["null", "float"], "default": null},
        {"name": "hostgal_magerr_r", "type": ["null", "float"], "default": null},
        {"name": "hostgal_magerr_i", "type": ["null", "float"], "default": null},
-       {"name": "hostgal_magerr_z", "type": ["null", "float"], "default": null}
+       {"name": "hostgal_magerr_z", "type": ["null", "float"], "default": null},
+       {"name": "ellipticity2", "type": ["null", "float"], "default": null},
+       {"name": "size2", "type": ["null", "float"], "default": null},
+       {"name": "hostgal2_z", "type": ["null", "float"], "default": null},
+       {"name": "hostgal2_mag_u", "type": ["null", "float"], "default": null},
+       {"name": "hostgal2_mag_g", "type": ["null", "float"], "default": null},
+       {"name": "hostgal2_mag_r", "type": ["null", "float"], "default": null},
+       {"name": "hostgal2_mag_i", "type": ["null", "float"], "default": null},
+       {"name": "hostgal2_mag_z", "type": ["null", "float"], "default": null},
+       {"name": "hostgal2_ra", "type": ["null", "float"], "default": null},
+       {"name": "hostgal2_dec", "type": ["null", "float"], "default": null},
+       {"name": "hostgal2_snsep", "type": ["null", "float"], "default": null},
+       {"name": "hostgal2_magerr_u", "type": ["null", "float"], "default": null},
+       {"name": "hostgal2_magerr_g", "type": ["null", "float"], "default": null},
+       {"name": "hostgal2_magerr_r", "type": ["null", "float"], "default": null},
+       {"name": "hostgal2_magerr_i", "type": ["null", "float"], "default": null},
+       {"name": "hostgal2_magerr_z", "type": ["null", "float"], "default": null}
 	]
 }
