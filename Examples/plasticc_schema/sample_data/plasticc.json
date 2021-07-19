@@ -37,6 +37,7 @@
 	"hostgal_mag_r":0,
 	"hostgal_mag_i":0,
 	"hostgal_mag_z":0,
+        "hostgal_mag_Y":0,
 	"hostgal_ra":0,
 	"hostgal_dec":0,
 	"hostgal_snsep":0,
@@ -45,6 +46,7 @@
 	"hostgal_magerr_r":0,
 	"hostgal_magerr_i":0,
 	"hostgal_magerr_z":0,
+	"hostgal_magerr_Y":0,
         "ellipticity2": 0,
         "size2": 0,
         "hostgal2_z": 0,
@@ -53,6 +55,7 @@
         "hostgal2_mag_r":0,
         "hostgal2_mag_i":0,
         "hostgal2_mag_z":0,
+        "hostgal2_mag_Y":0,
         "hostgal2_ra":0,
         "hostgal2_dec":0,
         "hostgal2_snsep":0,
@@ -60,7 +63,8 @@
         "hostgal2_magerr_g":0,
         "hostgal2_magerr_r":0,
         "hostgal2_magerr_i":0,
-        "hostgal2_magerr_z":0
+        "hostgal2_magerr_z":0,
+        "hostgal2_magerr_Y":0
     },
     "prvDiaSources": [
 	{
@@ -98,6 +102,7 @@
 	    "hostgal_mag_r":0,
 	    "hostgal_mag_i":0,
 	    "hostgal_mag_z":0,
+	    "hostgal_mag_Y":0,
 	    "hostgal_ra":0,
 	    "hostgal_dec":0,
 	    "hostgal_snsep":0,
@@ -106,6 +111,7 @@
 	    "hostgal_magerr_r":0,
 	    "hostgal_magerr_i":0,
 	    "hostgal_magerr_z":0,
+            "hostgal_magerr_Y":0,
             "ellipticity2": 0,
             "size2": 0,
             "hostgal2_z": 0,
@@ -114,6 +120,7 @@
             "hostgal2_mag_r":0,
             "hostgal2_mag_i":0,
             "hostgal2_mag_z":0,
+            "hostgal2_mag_Y":0,
             "hostgal2_ra":0,
             "hostgal2_dec":0,
             "hostgal2_snsep":0,
@@ -121,7 +128,8 @@
             "hostgal2_magerr_g":0,
             "hostgal2_magerr_r":0,
             "hostgal2_magerr_i":0,
-            "hostgal2_magerr_z":0
+            "hostgal2_magerr_z":0,
+            "hostgal2_magerr_Y":0
 	},
 	{
 	    "diaSourceId": 281323062375219199,
