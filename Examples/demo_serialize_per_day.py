@@ -229,8 +229,8 @@ def import_diasrc_from_fits(sn, my_diasrc,hostlib_flag=True,i=0):
         if hostlib_flag:
             # properties of the host galaxy
            # print('using HOSTLIB values')
-            my_diasrc['ellipticity'] = sn.meta['SIM_HOSTLIB(TOTAL_ELLIPTICITY)']
-            my_diasrc['size'] = sn.meta['SIM_HOSTLIB(radius)']
+            my_diasrc['hostgal_ellipticity'] = sn.meta['HOSTGAL_ELLIPTICITY']
+            my_diasrc['hostgal_sqradius'] = sn.meta['HOSTGAL_SQRADIUS']
             my_diasrc['hostgal_mag_u'] = sn.meta['SIM_HOSTLIB(mag_true_u_lsst)']
             my_diasrc['hostgal_mag_g'] = sn.meta['SIM_HOSTLIB(mag_true_g_lsst)']
             my_diasrc['hostgal_mag_r'] = sn.meta['SIM_HOSTLIB(mag_true_r_lsst)']
@@ -238,8 +238,8 @@ def import_diasrc_from_fits(sn, my_diasrc,hostlib_flag=True,i=0):
             my_diasrc['hostgal_mag_z'] = sn.meta['SIM_HOSTLIB(mag_true_z_lsst)']
             my_diasrc['hostgal_mag_Y'] = sn.meta['SIM_HOSTLIB(mag_true_Y_lsst)']
             
-            my_diasrc['ellipticity2'] = sn.meta['SIM_HOSTLIB(TOTAL_ELLIPTICITY)']
-            my_diasrc['size2'] = sn.meta['SIM_HOSTLIB(radius)']
+            my_diasrc['hostgal2_ellipticity'] = sn.meta['HOSTGAL2_ELLIPTICITY']
+            my_diasrc['hostgal2_size'] = sn.meta['HOSTGAL2_SQRADIUS']
             my_diasrc['hostgal2_mag_u'] = sn.meta['HOSTGAL2_MAG_u']
             my_diasrc['hostgal2_mag_g'] = sn.meta['HOSTGAL2_MAG_g']
             my_diasrc['hostgal2_mag_r'] = sn.meta['HOSTGAL2_MAG_r']
