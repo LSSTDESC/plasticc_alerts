@@ -227,11 +227,43 @@ def import_diasrc_from_fits(sn, my_diasrc,hostlib_flag=True,i=0):
         my_diasrc['hostgal2_magerr_z']= sn.meta['HOSTGAL2_MAGERR_z']
         
         my_diasrc['hostgal_ellipticity'] = sn.meta['HOSTGAL_ELLIPTICITY']
-        my_diasrc['hostgal_sqradius'] = sn.meta['HOSTGAL_SQRADIUS']
+        my_diasrc['hostgals_sqradius'] = sn.meta['HOSTGAL_SQRADIUS']
 
         my_diasrc['hostgal2_ellipticity'] = sn.meta['HOSTGAL2_ELLIPTICITY']
         my_diasrc['hostgal2_size'] = sn.meta['HOSTGAL2_SQRADIUS']
 
+        if hostlib_flag:
+            # properties of the host galaxy
+           # print('using HOSTLIB values')
+
+            my_diasrc['hostgal_mag_u'] = sn.meta['SIM_HOSTLIB(mag_true_u_lsst)']
+            my_diasrc['hostgal_mag_g'] = sn.meta['SIM_HOSTLIB(mag_true_g_lsst)']
+            my_diasrc['hostgal_mag_r'] = sn.meta['SIM_HOSTLIB(mag_true_r_lsst)']
+            my_diasrc['hostgal_mag_i'] = sn.meta['SIM_HOSTLIB(mag_true_i_lsst)']
+            my_diasrc['hostgal_mag_z'] = sn.meta['SIM_HOSTLIB(mag_true_z_lsst)']
+            my_diasrc['hostgal_mag_Y'] = sn.meta['SIM_HOSTLIB(mag_true_Y_lsst)']
+            
+            my_diasrc['hostgal2_mag_u'] = sn.meta['HOSTGAL2_MAG_u']
+            my_diasrc['hostgal2_mag_g'] = sn.meta['HOSTGAL2_MAG_g']
+            my_diasrc['hostgal2_mag_r'] = sn.meta['HOSTGAL2_MAG_r']
+            my_diasrc['hostgal2_mag_i'] = sn.meta['HOSTGAL2_MAG_i']
+            my_diasrc['hostgal2_mag_z'] = sn.meta['HOSTGAL2_MAG_z']
+            my_diasrc['hostgal2_mag_Y'] = sn.meta['HOSTGAL2_MAG_Y']
+            
+            my_diasrc['hostgal_magerr_u']= sn.meta['SIM_HOSTLIB(u_obs_err)']
+            my_diasrc['hostgal_magerr_g']= sn.meta['SIM_HOSTLIB(g_obs_err)']
+            my_diasrc['hostgal_magerr_r']= sn.meta['SIM_HOSTLIB(r_obs_err)']
+            my_diasrc['hostgal_magerr_i']= sn.meta['SIM_HOSTLIB(i_obs_err)']
+            my_diasrc['hostgal_magerr_z']= sn.meta['SIM_HOSTLIB(z_obs_err)']
+            my_diasrc['hostgal_magerr_Y']= sn.meta['SIM_HOSTLIB(Y_obs_err)']
+            
+            my_diasrc['hostgal2_magerr_u']= sn.meta['SIM_HOSTLIB(u_obs_err)']
+            my_diasrc['hostgal2_magerr_g']= sn.meta['SIM_HOSTLIB(g_obs_err)']
+            my_diasrc['hostgal2_magerr_r']= sn.meta['SIM_HOSTLIB(r_obs_err)']
+            my_diasrc['hostgal2_magerr_i']= sn.meta['SIM_HOSTLIB(i_obs_err)']
+            my_diasrc['hostgal2_magerr_z']= sn.meta['SIM_HOSTLIB(z_obs_err)']
+            my_diasrc['hostgal2_magerr_Y']= sn.meta['SIM_HOSTLIB(Y_obs_err)']
+   
         return my_diasrc
 savedir='/global/cscratch1/sd/rhlozek/alerts/plasticc_alerts/hostSims'
 os.chdir(savedir)
