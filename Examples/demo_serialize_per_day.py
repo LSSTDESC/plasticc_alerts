@@ -25,7 +25,7 @@ import os
 from copy import copy
 import json
 from collections import OrderedDict as odict
-
+import tarfile
 import numpy as np
 from astropy.io import fits
 from astropy.table import Table, vstack
@@ -37,7 +37,6 @@ import numpy as np
 from astropy.time import Time
 import glob
 from fastavro import writer, reader
-HOSTLIB_host=True
 import shutil
 # taken from sncosmo
 def read_snana_fits(head_file, phot_file, snids=None, n=None):
@@ -176,8 +175,10 @@ with open(path/'plasticc.json') as f:
 
 diasrc = alert_data['prvDiaSources'][0]
 
-def import_diasrc_from_fits(sn, my_diasrc,hostlib_flag=True,i=0):
+def import_diasrc_from_fits(sn, my_diasrc,i=0):
     
+        
+        my_diasrc['diaObjectId'] = 5 #sn['SNID'][i]
         my_diasrc['filterName'] = sn['BAND'][i]     
         my_diasrc['apFlux'] = sn['FLUXCAL'][i]
         my_diasrc['apFluxErr'] = sn['FLUXCALERR'][i]
@@ -209,37 +210,38 @@ def import_diasrc_from_fits(sn, my_diasrc,hostlib_flag=True,i=0):
         my_diasrc['hostgal_magerr_i']= sn.meta['HOSTGAL_MAGERR_i']
         my_diasrc['hostgal_magerr_z']= sn.meta['HOSTGAL_MAGERR_z']
         
-        my_diasrc['hostgal2_ra'] = sn.meta['HOSTGAL2_RA']
-        my_diasrc['hostgal2_dec'] = sn.meta['HOSTGAL2_DEC']
-        my_diasrc['hostgal2_snsep']= sn.meta['HOSTGAL2_SNSEP']
-        my_diasrc['hostgal2_z']=sn.meta['HOSTGAL2_SPECZ']
-        my_diasrc['hostgal2_z_err']=sn.meta['HOSTGAL2_SPECZ_ERR']   
-        my_diasrc['hostgal2_mag_u']= sn.meta['HOSTGAL2_MAG_u']
-        my_diasrc['hostgal2_mag_g']= sn.meta['HOSTGAL2_MAG_g']
-        my_diasrc['hostgal2_mag_r']= sn.meta['HOSTGAL2_MAG_r']
-        my_diasrc['hostgal2_mag_i']= sn.meta['HOSTGAL2_MAG_i']
-        my_diasrc['hostgal2_mag_z']= sn.meta['HOSTGAL2_MAG_z']
-        my_diasrc['hostgal2_mag_Y']= sn.meta['HOSTGAL2_MAG_Y']
-        my_diasrc['hostgal2_magerr_u']= sn.meta['HOSTGAL2_MAGERR_u']
-        my_diasrc['hostgal2_magerr_g']= sn.meta['HOSTGAL2_MAGERR_g']
-        my_diasrc['hostgal2_magerr_r']= sn.meta['HOSTGAL2_MAGERR_r']
-        my_diasrc['hostgal2_magerr_i']= sn.meta['HOSTGAL2_MAGERR_i']
-        my_diasrc['hostgal2_magerr_z']= sn.meta['HOSTGAL2_MAGERR_z']
+#         my_diasrc['hostgal2_ra'] = sn.meta['HOSTGAL2_RA']
+#         my_diasrc['hostgal2_dec'] = sn.meta['HOSTGAL2_DEC']
+#         my_diasrc['hostgal2_snsep']= sn.meta['HOSTGAL2_SNSEP']
+#         my_diasrc['hostgal2_z']=sn.meta['HOSTGAL2_SPECZ']
+#         my_diasrc['hostgal2_z_err']=sn.meta['HOSTGAL2_SPECZ_ERR']   
+#         my_diasrc['hostgal2_mag_u']= sn.meta['HOSTGAL2_MAG_u']
+#         my_diasrc['hostgal2_mag_g']= sn.meta['HOSTGAL2_MAG_g']
+#         my_diasrc['hostgal2_mag_r']= sn.meta['HOSTGAL2_MAG_r']
+#         my_diasrc['hostgal2_mag_i']= sn.meta['HOSTGAL2_MAG_i']
+#         my_diasrc['hostgal2_mag_z']= sn.meta['HOSTGAL2_MAG_z']
+#         my_diasrc['hostgal2_mag_Y']= sn.meta['HOSTGAL2_MAG_Y']
+#         my_diasrc['hostgal2_magerr_u']= sn.meta['HOSTGAL2_MAGERR_u']
+#         my_diasrc['hostgal2_magerr_g']= sn.meta['HOSTGAL2_MAGERR_g']
+#         my_diasrc['hostgal2_magerr_r']= sn.meta['HOSTGAL2_MAGERR_r']
+#         my_diasrc['hostgal2_magerr_i']= sn.meta['HOSTGAL2_MAGERR_i']
+#         my_diasrc['hostgal2_magerr_z']= sn.meta['HOSTGAL2_MAGERR_z']
         
-        my_diasrc['hostgal_ellipticity'] = sn.meta['HOSTGAL_ELLIPTICITY']
-        my_diasrc['hostgal_sqradius'] = sn.meta['HOSTGAL_SQRADIUS']
+        my_diasrc['hostgal_ellipticity'] = 5 #sn.meta['HOSTGAL_ELLIPTICITY']
+        my_diasrc['hostgal_sqradius'] = 5 # sn.meta['HOSTGAL_SQRADIUS']
 
-        my_diasrc['hostgal2_ellipticity'] = sn.meta['HOSTGAL2_ELLIPTICITY']
-        my_diasrc['hostgal2_size'] = sn.meta['HOSTGAL2_SQRADIUS']
+        my_diasrc['hostgal2_ellipticity'] = 5 # sn.meta['HOSTGAL2_ELLIPTICITY']
+        my_diasrc['hostgal2_size'] = 5 #sn.meta['HOSTGAL2_SQRADIUS']
 
         return my_diasrc
 savedir='/global/cscratch1/sd/rhlozek/alerts/plasticc_alerts/hostSims'
+#/global/cscratch1/sd/kessler/SNANA_LSST_SIM/MLAG_IDEAL_zALL_MODEL90_SNIa-SALT2_FULLn
 os.chdir(savedir)
 retval = "../Examples"
 simdir='../hostSims/'
 os.chdir(simdir)
 modelname = glob.glob('*MODEL*')
-num_sne =3 #how many supernova alerts you want to make
+num_sne =1 #how many supernova alerts you want to make
 
 os.chdir(retval)
 print(f"Running alerts for the model list: {modelname}")
@@ -252,59 +254,58 @@ with open(path/'plasticc.json') as f:
 #number_of_subplots=len(modelname)
 #print(number_of_subplots)
 
-
+mjd_dirs = range(53000,56000)
 start = timeit.timeit()
 
 for countm,name in enumerate(modelname):
     #print(name)
     # Open the photometry file and the header files
-    name_head=simdir+'/'+name+'/'+'%s-0001_HEAD.FITS.gz'%name
-    name_phot=simdir+'/'+name+'/'+'%s-0001_PHOT.FITS.gz'%name
+    name_head=simdir+'/'+name+'/'+'%s-0010_HEAD.FITS.gz'%name
+    name_phot=simdir+'/'+name+'/'+'%s-0010_PHOT.FITS.gz'%name
     
     sne = read_snana_fits(name_head, name_phot)
  
+    
     for iterNum,sn in enumerate(sne[0:num_sne]):
         #print(sn.colnames)
         ra = sn.meta['RA']
         mjd = sn['MJD']
         
         #print(sn['FLUXCALERR'])
-        alert = copy(alert_data_orig)
-    
+        alert = copy(alert_data_orig)  
         diasrc = alert_data_orig['prvDiaSources'][0]
         my_diasrc = copy(diasrc)
         alert = copy(alert_data_orig)
         alert['prvDiaSources'].clear()
-
-
         # Make a dummy source ID and import additional information to the diaSource
         my_diasrc['diaSourceId'] = np.int64(28132306237521+1000*np.random.uniform())
-        my_diasrc = import_diasrc_from_fits(sn,my_diasrc,HOSTLIB_host,i=0)
+        my_diasrc = import_diasrc_from_fits(sn,my_diasrc,i=0)
         alert['diaSource'] = my_diasrc
         
         for j, day in enumerate(mjd):
             #print(day)
             my_diasrc = copy(diasrc)
             my_diasrc['diaSourceId'] = my_diasrc['diaSourceId']+j+1
-            #plt.figure(iterNum*100)
-            #print(mjd[j],sn['FLUXCAL'][j])
-            #print(sn['FLUXCALERR'][j])
-            #plt.scatter(day,sn['FLUXCAL'][j], marker='o' )
-            my_diasrc = import_diasrc_from_fits(sn,my_diasrc,HOSTLIB_host,i=j)
+            my_diasrc = import_diasrc_from_fits(sn,my_diasrc,i=j)
             alert['prvDiaSources'].append(alert['diaSource'])
 
             # serialize the alert    
             avro_bytes = schema.serialize(alert)
             messg = schema.deserialize(avro_bytes)
         
+            mjdlabel=int(mjd[j])
 
-            with open("plasticcAlert_%s_%i_%5.1f.avro"%(name,iterNum,day), "wb") as f:
+            
+            with open("%i_%i_%i.avro"%(mjdlabel,my_diasrc['diaObjectId'],my_diasrc['diaSourceId']), "wb") as f:
                 schema.store_alerts(f, [alert])
+            tarfile.addfile(name="%i"(mjdlabel), mode='a', fileobj="%i_%i_%i.avro"%(mjdlabel,my_diasrc['diaObjectId'],my_diasrc['diaSourceId']), bufsize=10240)
+            
             #print(f"Saving model {name} as plasticcAlert_{name}_{iterNum}.avro")
 
     print(f"Done saving models for {modelname}")
 print(f"Done saving all models")
 
+print(huh)
 savedir='/global/cscratch1/sd/rhlozek/alerts/plasticc_alerts/Examples'
 os.chdir(savedir)
 files = glob.glob("*.avro")
