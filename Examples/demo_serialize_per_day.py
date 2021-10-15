@@ -298,7 +298,8 @@ for countm,name in enumerate(modelname):
             
             with open("%i_%i_%i.avro"%(mjdlabel,my_diasrc['diaObjectId'],my_diasrc['diaSourceId']), "wb") as f:
                 schema.store_alerts(f, [alert])
-            tarfile.addfile(name="%i"(mjdlabel), mode='a', fileobj="%i_%i_%i.avro"%(mjdlabel,my_diasrc['diaObjectId'],my_diasrc['diaSourceId']), bufsize=10240)
+            with tarfile.open(name="%i"%(mjdlabel), mode='a', bufsize=10240) as tar:
+                tar.add(name="%i_%i_%i.avro"%(mjdlabel,my_diasrc['diaObjectId'],my_diasrc['diaSourceId']))
             
             #print(f"Saving model {name} as plasticcAlert_{name}_{iterNum}.avro")
 
