@@ -1,0 +1,13 @@
+{
+	"namespace": "lsst.v4_1",
+	"name": "LVKAlert",
+	"type": "record",
+	"fields": [
+		{"name": "supereventId",  "type": "string", "default": null},
+		{"name": "gpstime", "type": "float", "default": null},
+		{"name": "skymapFilename", "type": "string", "default": null},
+		{"name": "skymapHealpix", "type": {
+			"type": "array", "items" : "double",
+			"default": []}}
+	]
+}
