@@ -7,7 +7,6 @@
 		{"name": "gpstime", "type": "float", "default": null},
 		{"name": "skymapFilename", "type": "string", "default": null},
 		{"name": "skymapHealpix", "type": {
-			"type": "array", "items" : "double",
-			"default": []}}
+			 "type": "bytes", "doc": "multiorder.fits"}}
 	]
 }
