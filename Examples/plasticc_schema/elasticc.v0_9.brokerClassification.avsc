@@ -1,5 +1,5 @@
 {
-  "namespace": "lsst.v4_1",
+  "namespace": "elasticc.v0_9",
   "type": "record",
   "name": "brokerClassfication",
   "doc": "sample avro alert schema v4.1",
