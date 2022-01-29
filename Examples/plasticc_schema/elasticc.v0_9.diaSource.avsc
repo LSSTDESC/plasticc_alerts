@@ -6,7 +6,6 @@
 		{"name": "diaSourceId", "type": "long"},
 		{"name": "ccdVisitId",  "type": "long"},
 		{"name": "diaObjectId", "type": ["null", "long"], "default": null},
-		{"name": "ssObjectId", "type": ["null", "long"], "default": null},
 		{"name": "parentDiaSourceId", "type": ["null", "long"], "default": null},
 		{"name": "midPointTai", "type": "double"},
 		{"name": "filterName", "type": "string"},
