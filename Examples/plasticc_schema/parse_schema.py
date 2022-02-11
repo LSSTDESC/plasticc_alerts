@@ -1,4 +1,4 @@
-# A quick-n-dirty script to read a schema to make sure it's syntax is OK
+# A quick-n-dirty script to read a schema to make sure its syntax is OK
 
 import sys
 import fastavro
