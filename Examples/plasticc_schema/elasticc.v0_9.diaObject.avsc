@@ -4,6 +4,7 @@
 	"type": "record",
 	"fields": [
 		{"name": "diaObjectId", "type": "long"},
+		{"name": "simVersion",  "type": ["null", "string"], "doc": "diaObject provenance"},
 		{"name": "ra", "type": "double"},
 		{"name": "decl", "type": "double"},
 		{"name": "mwebv", "type": ["null", "float"], "default": null},
