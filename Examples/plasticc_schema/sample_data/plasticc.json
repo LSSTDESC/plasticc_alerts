@@ -41,6 +41,7 @@
 	}
     ],
     "diaObject": {
+	"simVersion": "undefined",
 	"diaObjectId": 281323062375219201,
 	"ra": 351.570546978,
 	"decl": 0.126243049656,
