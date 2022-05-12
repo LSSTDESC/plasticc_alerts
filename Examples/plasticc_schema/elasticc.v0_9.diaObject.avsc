@@ -79,32 +79,3 @@
         {"name": "hostgal2_magerr_Y", "type": ["null", "float"], "default": null}
 	]
 }
-        {"name": "hostgal2_zphot_q000", "type": ["null", "float"], "default": null},
-        {"name": "hostgal2_zphot_q010", "type": ["null", "float"], "default": null},
-        {"name": "hostgal2_zphot_q020", "type": ["null", "float"], "default": null},
-        {"name": "hostgal2_zphot_q030", "type": ["null", "float"], "default": null},
-        {"name": "hostgal2_zphot_q040", "type": ["null", "float"], "default": null},
-        {"name": "hostgal2_zphot_q050", "type": ["null", "float"], "default": null},
-        {"name": "hostgal2_zphot_q060", "type": ["null", "float"], "default": null},
-        {"name": "hostgal2_zphot_q070", "type": ["null", "float"], "default": null},
-        {"name": "hostgal2_zphot_q080", "type": ["null", "float"], "default": null},
-        {"name": "hostgal2_zphot_q090", "type": ["null", "float"], "default": null},
-        {"name": "hostgal2_zphot_q100", "type": ["null", "float"], "default": null},
-        {"name": "hostgal2_zphot_p50", "type": ["null", "float"], "default": null},
-        {"name": "hostgal2_mag_u", "type": ["null", "float"], "default": null},
-        {"name": "hostgal2_mag_g", "type": ["null", "float"], "default": null},
-        {"name": "hostgal2_mag_r", "type": ["null", "float"], "default": null},
-        {"name": "hostgal2_mag_i", "type": ["null", "float"], "default": null},
-        {"name": "hostgal2_mag_z", "type": ["null", "float"], "default": null},
-        {"name": "hostgal2_mag_Y", "type": ["null", "float"], "default": null},
-        {"name": "hostgal2_ra", "type": ["null", "float"], "default": null},
-        {"name": "hostgal2_dec", "type": ["null", "float"], "default": null},
-        {"name": "hostgal2_snsep", "type": ["null", "float"], "default": null},
-        {"name": "hostgal2_magerr_u", "type": ["null", "float"], "default": null},
-        {"name": "hostgal2_magerr_g", "type": ["null", "float"], "default": null},
-        {"name": "hostgal2_magerr_r", "type": ["null", "float"], "default": null},
-        {"name": "hostgal2_magerr_i", "type": ["null", "float"], "default": null},
-        {"name": "hostgal2_magerr_z", "type": ["null", "float"], "default": null},
-        {"name": "hostgal2_magerr_Y", "type": ["null", "float"], "default": null}
-	]
-}
